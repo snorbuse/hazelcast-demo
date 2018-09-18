@@ -1,0 +1,6 @@
+rootProject.name = 'hazelcast-demo'
+
+include 'demoapp'
+include 'snorbuse-session-starter'
+include 'snorbuse-usersession-starter'
+

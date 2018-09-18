@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+<!-- Text -->
+<div th:fragment="text(name)" class="form-group">
+    <label th:for="${name}" th:text="#{form.__${name}__}"/>
+    <input type="text" th:name="${name}" th:field="*{__${name}__}" th:id="${name}" class="form-control"/>
+</div>
+
+<!-- Password -->
+<div th:fragment="password(name)" class="form-group">
+    <label th:for="${name}" th:text="#{form.__${name}__}"/>
+    <input type="password" th:name="${name}" th:id="${name}" class="form-control"/>
+</div>
+
+<div th:fragment="textarea(name)" class="form-group">
+    <label th:for="${name}" th:text="#{form.__${name}__}"/>
+    <textarea rows="5" th:id="${name}" th:name="${name}" class="form-control"></textarea>
+</div>
+
+<!-- Submit -->
+<div th:fragment="submit(name)" class="form-group">
+    <button type="submit" value="submit" th:text="#{form.__${name}__}" class="btn btn-default"/>
+</div>
+
+
+<!-- Select -->
+<div th:fragment="select(name, options)" class="form-group row">
+    <div class="col-sm-4">
+        <label th:for="${name}" th:text="#{form.__${name}__}"/>
+        <select class="form-control" th:name="${name}" th:id="${name}">
+            <option th:each="option : ${options}" th:text="${option}" th:value="${option}">First</option>
+        </select>
+    </div>
+</div>
+
+<!-- Radio -->
+<div th:fragment="radio(name, options)" class="form-group">
+    <label class="control-label" th:text="#{form.__${name}__}"/>
+    <div class="radio" th:each="option : ${options}" th:inline="text">
+        <label><input type="radio" th:name="${name}"/>[[${option}]]</label>
+    </div>
+</div>
+
+<!-- Checkbox -->
+<div th:fragment="checkbox(name, options)" class="form-group">
+    <label class="control-label" th:text="#{form.__${name}__}"/>
+    <div class="checkbox" th:each="option : ${options}" th:inline="text">
+        <label><input type="checkbox"/>[[${option}]]</label>
+    </div>
+</div>
+
+</body>
+</html>

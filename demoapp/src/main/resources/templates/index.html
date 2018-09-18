@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layouts/default">
+<head>
+    <title>Hazelcast demo</title>
+</head>
+<body>
+<div class="container">
+    <th:block layout:fragment="content">
+        <h1>Person information</h1>
+        <form th:action="@{/}" method="post" th:object="${personForm}">
+            <div class="form-group row col-sm-5">
+                <div th:replace="fragments/form :: text(name = 'firstName')"></div>
+                <div th:replace="fragments/form :: text(name = 'lastName')"></div>
+                <div th:replace="fragments/form :: submit(name='send')"></div>
+            </div>
+        </form>
+    </th:block>
+</div>
+</body>
+</html>

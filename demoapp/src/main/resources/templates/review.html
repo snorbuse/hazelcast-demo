@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layouts/default">
+<head>
+    <title>Hazelcast demo</title>
+</head>
+<body>
+<div class="container">
+    <th:block layout:fragment="content">
+        <h1>Review</h1>
+        <dl class="dl-horizontal">
+            <dt th:text="#{form.firstName}"></dt>
+            <dd th:text="${person.firstName}"></dd>
+
+            <dt th:text="#{form.lastName}"></dt>
+            <dd th:text="${person.lastName}"></dd>
+        </dl>
+    </th:block>
+</div>
+</body>
+</html>
